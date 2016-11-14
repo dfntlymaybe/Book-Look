@@ -1,0 +1,8 @@
+.book-cover-img{
+  width: 25%;
+}
+.book-frame{
+  /*border: 2px solid #000000;*/
+  margin: 10px;
+  padding: 10px;
+}

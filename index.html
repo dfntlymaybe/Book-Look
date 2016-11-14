@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+  <script type="text/javascript" src="node_modules/handlebars/dist/handlebars.min.js"></script>
+
+    <div class="container">  
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="page-header">
+            <h1>BookLook <i class="fa fa-eye" aria-hidden="true"></i></h1>
+          </div>
+
+          <div class="respons-block">
+          </div>
+
+          <form class="books-form">
+            <h3>Enter Book Info</h3>
+
+            <div class="form-group">
+              <input type="text" id="book-title" class="form-control" placeholder="Book Title">
+            </div>
+            <div class="form-group">
+              <input type="text" id="book-authore" class="form-control" placeholder="Book Author">
+            </div>
+            <div class="form-group">
+              <input type="text" id="book-description" class="form-control" placeholder="Book Description">
+            </div>
+            <div class="form-group">
+              <input type="text" id="image-url" class="form-control" placeholder="Image URL">
+            </div>
+            <div class="form-group">
+              <input type="number" id="number-of-pages" class="form-control" placeholder="Number Of Pages">
+            </div>
+            <div class="form-group">
+              <input type="number" id="minutes-you-read-per-day" class="form-control" placeholder="Minutes You Read Per Day">
+            </div>
+
+            <button class="btn btn-primary search-button">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script id="respons-template" type="text/x-handlebars-template">
+
+      {{#each books}}
+        <div class="book-frame">
+          <p>This book will take you {{daysToRead}} days to read.</p>
+          <h2>{{title}}</h2>
+          <p>{{description}}</p>
+          <h3>Written by: {{authore}}</h3>
+          <div class="book-cover-img">
+            <img src="{{imageUrl}}" class="img-thumbnail"/>
+          </div>
+        </div>
+      {{/each}}
+      
+
+    </script>
+
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+  </body>
+
+</html>
