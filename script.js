@@ -36,6 +36,77 @@ var bookLookApp = function(){
 
 };
 
+function validateText($input){
+  debugger;
+  if($input.val() != ""){
+    return true;
+  }else{
+    var field = "";
+    switch($input.attr('id')){
+
+      case 'book-title':
+      field = "title";
+      break;
+
+      case 'book-authore':
+      field = "authore";
+      break;
+
+      case 'book-description':
+      field = "description";
+      break;
+
+      case 'image-url':
+      field = "image-url";
+      break;
+    }
+
+    $input.parent().addClass('has-error');
+    $input.attr("placeholder", "You must enter a " + field);
+    return false;
+  }
+}
+
+function validateNum($input){
+  if($input.val() != "" && !isNaN($input.val())){
+    return true;
+  }else{
+    var field = "";
+    switch($input.attr('id')){
+
+      case 'number-of-pages':
+      field = "number of pages";
+      break;
+
+      case 'minutes-you-read-per-day':
+      field = "minutes you read per day";
+      break;
+    }
+
+    $input.parent().addClass('has-error');
+    $input.val('');
+    $input.attr("placeholder", "You must enter a " + field);
+
+    return false;
+  }
+}
+
+function validateForm($title, $authore, $description, $imageUrl, $numOfPages, $minPerDay){
+
+  var validTitle = validateText($title);
+  var validAuthore = validateText($authore);
+  var validDesc = validateText($description);
+  var validImage = validateText($imageUrl);
+  var validNum = validateNum($numOfPages);
+  var validMin = validateNum($minPerDay);
+  if(validTitle && validAuthore && validDesc && validImage && validNum && validMin){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+
 
 var app = bookLookApp();
 
@@ -48,16 +119,23 @@ var app = bookLookApp();
 $('.search-button').on('click', function(){
   event.preventDefault();
 
-  var title = $('#book-title').val();
-  var authore = $('#book-authore').val();
-  var description = $('#book-description').val();
-  var imageUrl = $('#image-url').val();
-  var numOfPages = $('#number-of-pages').val();
-  var minPerDay = $('#minutes-you-read-per-day').val();
+  var $title = $('#book-title');
+  var $authore = $('#book-authore');
+  var $description = $('#book-description');
+  var $imageUrl = $('#image-url');
+  var $numOfPages = $('#number-of-pages');
+  var $minPerDay = $('#minutes-you-read-per-day');
 
- app.createBook(title, authore, description, imageUrl, numOfPages, minPerDay);
- app.renderBooks();
 
-  $('input').val('');
+
+  if(validateForm($title, $authore, $description, $imageUrl, $numOfPages, $minPerDay)){
+    app.createBook($title.val(), $authore.val(), $description.val(), $imageUrl.val(), $numOfPages.val(), $minPerDay.val());
+    app.renderBooks();
+
+    $('input').val('');
+    
+  }
+
+ 
   
 });
