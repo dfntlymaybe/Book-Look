@@ -111,8 +111,8 @@ function validateForm($title, $authore, $description, $imageUrl, $numOfPages, $m
 var app = bookLookApp();
 
 //Test dummy books
-// app.createBook("the 1st book", "monkey boy", "shitty book", "http://www.clipartkid.com/images/157/best-online-collection-of-free-to-use-clipart-contact-us-privacy-Q634MZ-clipart.jpg", 284, 15)
-// app.createBook("the 2nd book", "tighty whity", "bongo mongo", "http://www.clipartkid.com/images/557/big-book-clipart-big-book-clip-art-JvPjUB-clipart.png", 315, 17)
+ app.createBook("the 1st book", "monkey boy", "shitty book", "http://www.clipartkid.com/images/157/best-online-collection-of-free-to-use-clipart-contact-us-privacy-Q634MZ-clipart.jpg", 284, 15)
+ app.createBook("the 2nd book", "tighty whity", "bongo mongo", "http://www.clipartkid.com/images/557/big-book-clipart-big-book-clip-art-JvPjUB-clipart.png", 315, 17)
 
 
 
