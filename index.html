@@ -8,7 +8,6 @@
   </head>
 
   <body>
-  <script type="text/javascript" src="node_modules/handlebars/dist/handlebars.min.js"></script>
 
     <div class="container">  
       <div class="row">
@@ -20,26 +19,14 @@
           <div class="respons-block">
           </div>
 
+          <div class="demo">
+          </div>
+
           <form class="books-form">
-            <h3>Enter Book Info</h3>
+            <h3>Search by Book's name</h3>
 
             <div class="form-group">
-              <input type="text" id="book-title" class="form-control" placeholder="Book Title">
-            </div>
-            <div class="form-group">
-              <input type="text" id="book-authore" class="form-control" placeholder="Book Author">
-            </div>
-            <div class="form-group">
-              <input type="text" id="book-description" class="form-control" placeholder="Book Description">
-            </div>
-            <div class="form-group">
-              <input type="text" id="image-url" class="form-control" placeholder="Image URL">
-            </div>
-            <div class="form-group">
-              <input type="number" id="number-of-pages" class="form-control" placeholder="Number Of Pages">
-            </div>
-            <div class="form-group">
-              <input type="number" id="minutes-you-read-per-day" class="form-control" placeholder="Minutes You Read Per Day">
+              <input type="text" id="book-name" class="form-control" placeholder="Enter book's name">
             </div>
 
             <button class="btn btn-primary search-button">Search</button>
@@ -48,11 +35,9 @@
       </div>
     </div>
 
-    <script id="respons-template" type="text/x-handlebars-template">
+    <script id="book-template" type="text/x-handlebars-template">
 
-      {{#each books}}
         <div class="book-frame">
-          <p>This book will take you {{daysToRead}} days to read.</p>
           <h2>{{title}}</h2>
           <p>{{description}}</p>
           <h3>Written by: {{authore}}</h3>
@@ -60,12 +45,22 @@
             <img src="{{imageUrl}}" class="img-thumbnail"/>
           </div>
         </div>
-      {{/each}}
       
+    </script>
 
+    <script id="books-list-template" type="text/x-handlebars-template">
+      <div class="book-frame">
+        <ol>
+          {{#each books}}
+            <li data-id="{{id}}"><a href="#" class="book-link">{{title}}</a> Written by: {{authore}}</li> 
+          {{/each}}
+        </ol>
+      </div>
     </script>
 
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="node_modules/Minimal-jQuery-Loading-Overlay-Spinner-Plugin-Easy-Overlay/jquery.easy-overlay.js"></script>
+    <script type="text/javascript" src="node_modules/handlebars/dist/handlebars.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 
   </body>
