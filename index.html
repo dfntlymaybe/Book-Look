@@ -23,10 +23,10 @@
           </div>
 
           <form class="books-form">
-            <h3>Search by ISBN</h3>
+            <h3>Search by Book's name</h3>
 
             <div class="form-group">
-              <input type="text" id="isbn-number" class="form-control" placeholder="ISBN number">
+              <input type="text" id="book-name" class="form-control" placeholder="Enter book's name">
             </div>
 
             <button class="btn btn-primary search-button">Search</button>
@@ -35,9 +35,8 @@
       </div>
     </div>
 
-    <script id="respons-template" type="text/x-handlebars-template">
+    <script id="book-template" type="text/x-handlebars-template">
 
-      {{#each books}}
         <div class="book-frame">
           <h2>{{title}}</h2>
           <p>{{description}}</p>
@@ -46,9 +45,17 @@
             <img src="{{imageUrl}}" class="img-thumbnail"/>
           </div>
         </div>
-      {{/each}}
       
+    </script>
 
+    <script id="books-list-template" type="text/x-handlebars-template">
+      <div class="book-frame">
+        <ol>
+          {{#each books}}
+            <li data-id="{{id}}"><a href="#" class="book-link">{{title}}</a> Written by: {{authore}}</li> 
+          {{/each}}
+        </ol>
+      </div>
     </script>
 
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
